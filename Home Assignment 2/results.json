@@ -1,0 +1,204 @@
+{
+    "title": "Notebook Tests HA 2",
+    "notebook": "/autograde/notebook.ipynb",
+    "checksum": "ecaf1441cb603e5f19543bef5b59b7b9b2bc5f9f6cdf38862a2e8ebc55ec0713",
+    "team_members": [
+        {
+            "first_name": "Na Young",
+            "last_name": "Ahn",
+            "student_id": 392326
+        },
+        {
+            "first_name": "Esther",
+            "last_name": "Tala",
+            "student_id": 368095
+        },
+        {
+            "first_name": "Mika",
+            "last_name": "Rosin",
+            "student_id": 395049
+        },
+        {
+            "first_name": "Laurin",
+            "last_name": "Ellenbeck",
+            "student_id": 372280
+        }
+    ],
+    "artifacts": [
+        "figures/fig_nb_3_1.png",
+        "figures/fig_nb_4_1.png"
+    ],
+    "excluded_artifacts": [
+        "NSW.csv",
+        "NSW.doc",
+        "bypass.csv",
+        "housing.csv",
+        "housing_test.csv",
+        "housing_train.csv",
+        "smile.csv",
+        "task1.csv"
+    ],
+    "results": [
+        {
+            "id": "8a70fffd2334db045f78c559cbf539df31fa29c0333e9d11883a976857c9c044",
+            "label": "Task 1: Answer Basic Data Analysis",
+            "target": [
+                "__COMMENTS__"
+            ],
+            "score": NaN,
+            "score_max": 20,
+            "messages": [
+                "[MATCH 1]:\n**A1**: To find the relationship between the three variables x,y,z, we first examined the correlation between the variables, as given in the correlation table. We confirmed that there is a high correlation between x and y with the correlation value of 0.99857 and plot 1. Finally we found a smiley face as we plotted all the variables in the 3d scatter plot as given in plot 2.\n\n"
+            ],
+            "stdout": "",
+            "stderr": ""
+        },
+        {
+            "id": "3bf6716e7178c606f1d2f794965733cf95e3e5fc6ee13a5c772f51bde554377f",
+            "label": "Task 2a: Test add_propensity_scores",
+            "target": [
+                "add_propensity_scores"
+            ],
+            "score": 5,
+            "score_max": 5,
+            "messages": [
+                "\u2705 passed"
+            ],
+            "stdout": "",
+            "stderr": ""
+        },
+        {
+            "id": "3f87fa3d67dad14f8ae00195db93524ce83bc65d838eeec57febe08ea92b061b",
+            "label": "Task 2b: Propensity Scores of the NSW Data",
+            "target": [
+                "df_nsw"
+            ],
+            "score": 5,
+            "score_max": 5,
+            "messages": [
+                "\u2705 passed"
+            ],
+            "stdout": "",
+            "stderr": ""
+        },
+        {
+            "id": "ae2b095cc70c82b476adf1081f4bd9c1e19af3b824eb4be0e7b0d2821a11f266",
+            "label": "Task 2c: Test greedy_matching",
+            "target": [
+                "greedy_matching"
+            ],
+            "score": 0,
+            "score_max": 10,
+            "messages": [
+                "\u274c AssertionError: \"Error in matching without calliper: Indices in returned list of treatment group don't perfectly match row indices of treated instances in data.\""
+            ],
+            "stdout": "",
+            "stderr": "Test failed:\nTraceback (most recent call last):\n  File \"/autograde/src/autograde/notebook_test.py\", line 154, in __call__\n    result = self._test_func(*targets, *args, **kwargs)\n  File \"/autograde/test.py\", line 175, in test_greedy_matching\n    assert set(np.where(dta_nsw['treat'] == 1)[0]) == set(t_result), \\\nAssertionError: Error in matching without calliper: Indices in returned list of treatment group don't perfectly match row indices of treated instances in data.\n"
+        },
+        {
+            "id": "8e7bd0151934640654af658f26b89efb79584de4aa733f2b6f7f1ddff3b82a58",
+            "label": "Task 2d: Average Treatment Effect after Matching",
+            "target": [
+                "ate"
+            ],
+            "score": 5,
+            "score_max": 5,
+            "messages": [
+                "\u2705 passed"
+            ],
+            "stdout": "6383.649716750435\n",
+            "stderr": ""
+        },
+        {
+            "id": "f3388d9287c95920f6cba8c529c60d53099fcc10c18391cf721102ffe3d0e880",
+            "label": "Task 2d: Answer Average Treatment Effect after Matching",
+            "target": [
+                "__COMMENTS__"
+            ],
+            "score": NaN,
+            "score_max": 5,
+            "messages": [
+                "[MATCH 1]:\n**A2:** The treatment groups real earning in 1978 average was significantly higher, compared to the average real earning in 1978 from the matched control group. Overall the average real earnings in 1978 of the treatment group was significantly lower, compared to the overall control group average.\n\n"
+            ],
+            "stdout": "",
+            "stderr": ""
+        },
+        {
+            "id": "81ef920047283cc07bf34d8005af556bbd17262895a51eb1032d49d112bad6b2",
+            "label": "Task 3:  Results of wrongly named model 'results'",
+            "target": [
+                "results"
+            ],
+            "score": 0,
+            "score_max": 0,
+            "messages": [
+                "\u274c NameError: \"'results'\""
+            ],
+            "stdout": "",
+            "stderr": "Test failed:\nTraceback (most recent call last):\n  File \"/autograde/src/autograde/notebook_test.py\", line 148, in __call__\n    targets = [state[t] for t in self._targets]\n  File \"/autograde/src/autograde/notebook_test.py\", line 148, in <listcomp>\n    targets = [state[t] for t in self._targets]\nKeyError: 'results'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/autograde/src/autograde/notebook_test.py\", line 150, in __call__\n    raise NameError(err)\nNameError: 'results'\n"
+        },
+        {
+            "id": "846a66c2bf37f45f031e4bda8ff604bea7037b2853bd306efed38087982b122a",
+            "label": "Task 3: Results of model",
+            "target": [
+                "bypass_fit"
+            ],
+            "score": 10,
+            "score_max": 10,
+            "messages": [
+                "\u2705 passed"
+            ],
+            "stdout": "No. observations: 200\nR-squared: 1.0\nAdj. R-squared: 1.0\n==============================================================================\n                 coef    std err          t      P>|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nnew           -4.7542      0.054    -88.276      0.000      -4.860      -4.648\nage            0.2089      0.001    149.298      0.000       0.206       0.212\nseverity       0.3032      0.002    139.508      0.000       0.299       0.307\n==============================================================================\n",
+            "stderr": ""
+        },
+        {
+            "id": "33e35d3a1f3e795e8c4ee2e9073f7a5b3dec08eff059521d6531cfe848c5875a",
+            "label": "Task 3: Answer Causal Inference",
+            "target": [
+                "__COMMENTS__"
+            ],
+            "score": NaN,
+            "score_max": 40,
+            "messages": [
+                "[MATCH 1]:\n**A3:** \n\nWe observe, on average, a shorter postoperative hospital stay with the new method (24 days) compared to the stay length of the old treatment (32 days).\nThe correlation between stay and new is negative after all. This correlation is smaller for the older people (>=80 years). Also the correlation between age and severity is higher for older people, meaning they are at a higher risk with a weaker benefit of a shorter stay.\n\nThere is a significant effect in general, but not for the older people.\n\n"
+            ],
+            "stdout": "",
+            "stderr": ""
+        },
+        {
+            "id": "8717dbcb2f6e9162a75ffe3ca0485d286d5ba8c73ddd21b7ae4445ca89cbac14",
+            "label": "Task 4: Results of eval_model only on train data",
+            "target": [
+                "preprocess",
+                "scale",
+                "beta_houses"
+            ],
+            "score": 20,
+            "score_max": 20,
+            "messages": [
+                "\u2705 passed"
+            ],
+            "stdout": "-0.9842117860660085\n",
+            "stderr": ""
+        },
+        {
+            "id": "29010c8662866f009417697785cf3db8bf92c73544a6d4547884e2a995a44988",
+            "label": "Task 4: Results of eval_model on train/test data",
+            "target": [
+                "preprocess",
+                "scale",
+                "beta_houses"
+            ],
+            "score": 40,
+            "score_max": 40,
+            "messages": [
+                "\u2705 passed"
+            ],
+            "stdout": "-0.9393943477984519\n",
+            "stderr": ""
+        }
+    ],
+    "applied_patches": [],
+    "version": "0.2.3",
+    "timestamp": "2021-01-17T22:42:37+00:00"
+}
